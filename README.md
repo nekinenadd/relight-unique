@@ -1,4 +1,3 @@
-# Animated Imaged Slider HTML CSS & JavaScript 
-## Animated Carousel Design
+# Relight unique
+## Custom retro lamps
 
-<img src="./image/Image Slider using HTML CSS and JavaScript.png">

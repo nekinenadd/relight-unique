@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relight</title>
+
+    <link rel="icon" href="./image/logo.svg" type="image/svg+xml">
+    <link rel="icon" href="./image/logo.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+
+
+
+</head>
+<body>
+    <header>
+    </header>
+
+    <!-- carousel -->
+    <div class="carousel">
+        <!-- list item -->
+        <div class="list">
+            <div class="item">
+                <img src="image/crnalampa1.jpeg">
+                <div class="content">
+                    <div class="title">Red Retro.</div>
+                    <div class="topic" style="color: black;">Relight</div>
+                    
+                </div>
+            </div>
+            <div class="item">
+                <img src="image/plavalampa.jpeg">
+                <div class="content">
+                    <div class="title">Utopli svaki</div>
+                    <div class="topic" style="color: rgb(0, 141, 242);">Kutak</div>             
+                </div>
+            </div>
+            <div class="item">
+                <img src="image/zutalampa1.jpeg">
+                <div class="content">
+                    <div class="title">Dodir retro</div>
+                    <div class="topic" style="color: rgb(213, 236, 0);">Mira</div>
+                    
+                </div>
+            </div>
+            <div class="item">
+                <img src="image/narandzastalampa.jpeg">
+                <div class="content">
+                    <div class="title">Probudi svoju</div>
+                    <div class="topic" style="color: rgb(255, 145, 0);">Emociju</div>
+                   
+                </div>
+            </div>
+        </div>
+        <!-- list thumnail -->
+        <div class="thumbnail">
+            <div class="item">
+                <img src="image/crnalampa1.jpeg">
+                
+            </div>
+            <div class="item">
+                <img src="image/plavalampa.jpeg">
+                
+            </div>
+            <div class="item">
+                <img src="image/zutalampa1.jpeg">
+                
+            </div>
+            <div class="item">
+                <img src="image/narandzastalampa.jpeg">
+                
+            </div>
+        </div>
+        <!-- next prev -->
+
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        <!-- time running -->
+        <div class="time"></div>
+    </div>
+
+    <section class="about-section">
+    <div class="about-text">
+        <h2>Zašto baš naše lampe?</h2>
+        <p>
+            Svaki komad izrađujemo ručno, sa posebnom pažnjom na detalje. 
+            Naše lampe kombinuju retro estetiku, toplinu svetla i moderan dizajn. 
+            Sve radimo potpuno custom — prilagođavamo boje, oblike i stil tvom prostoru.
+        </p>
+    </div>
+
+    <div class="about-image">
+        <img src="image/zutalampa1-Photoroom.png" alt="Lava lampa">
+    </div>
+     </section>
+
+    <section class="process-section">
+    <h2>Kako nastaje naša lampa</h2>
+
+    <div class="process-grid">
+
+        <div class="process-card">
+            <h3>Ideja &amp; Dizajn</h3>
+            <p>Sve počinje pronalaskom retro telefona za koji određujemo boje i materijale.
+                Osmišljavamo dizajn koji će naglasiti njegov retro karakter i pretvoriti ga u
+                jedinstvenu lampu.</p>
+        </div>
+
+        <div class="process-card">
+            <h3>Priprema &amp; Očuvanje Originala</h3>
+            <p>Telefon se pažljivo čisti, rastavlja i priprema, uz posebnu brigu da njegov autentični
+                oblik i svi delovi ostanu netaknuti.</p>
+        </div>
+
+        <div class="process-card">
+            <h3>Ručna izrada</h3>
+            <p>Svi delovi se pažljivo spajaju, obrađuju i zatvaraju ručno, uz preciznost i posvećenost
+            koja osigurava dugotrajnost i jedinstven izgled.</p>
+        </div>
+
+        <div class="process-card">
+            <h3>Testiranje</h3>
+            <p>Svaka lampa prolazi kroz kontrolu svih kablova i spojeva, kao i višesatno testiranje
+                svetla. Tek kada smo sigurni da je potpuno tehnički ispravna, bezbedna i spremna da
+                traje godinama kreće ka Vama.</p>
+        </div>
+
+    </div>
+     </section>
+
+    <section class="promo-section">
+
+    <div class="promo-cards">
+
+        <a href="https://www.instagram.com/relight_unique/" target="_blank" class="promo-card">
+            <div class="promo-image">
+                <img src="image/narandzastalampa.jpeg" alt="">
+            </div>
+            <div class="promo-text">
+                <h3>Za lični kutak</h3>
+            </div>
+        </a>
+
+        <a href="https://www.instagram.com/relight_unique/" target="_blank" class="promo-card">
+            <div class="promo-image">
+                <img src="image/plavalampa.jpeg" alt="">
+            </div>
+            <div class="promo-text">
+                <h3>Za poslovni prostor</h3>
+            </div>
+        </a>
+
+    </div>
+     </section>
+
+    <section class="contact-section">
+    <h2>Kontaktirajte nas</h2>
+
+    <form class="contact-form" id="contact-form">
+        <input type="text" name="name" placeholder="Vaše ime" required>
+        <input type="email" name="email" placeholder="Vaš email" required>
+        <textarea name="message" placeholder="Vaša poruka" required></textarea>
+        <button type="submit">Pošalji</button>
+    </form>
+
+    <p id="form-status"></p>
+     </section>
+     
+    <section class="footer-section">
+    <p>&copy; 2024 Relight. Sva prava zadržana.</p>
+<!---->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

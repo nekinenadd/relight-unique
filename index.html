@@ -21,62 +21,82 @@
     <div class="carousel">
         <!-- list item -->
         <div class="list">
-            <div class="item">
-                <img src="image/crnalampa1.jpeg">
+            <div class="item hero-slide" data-title="Ručno pravljena" data-topic="Signature lampa.">
                 <div class="content">
-                    <div class="title">Red Retro.</div>
-                    <div class="topic" style="color: black;">Relight</div>
-                    
+                    <div class="premium-layout">
+                        <div class="premium-visual">
+                            <img src="image/crnalampa1.jpeg" alt="Crvena Relight lampa">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="item">
-                <img src="image/plavalampa.jpeg">
+            <div class="item hero-slide" data-title="Utopli svaki" data-topic="Kutak.">
                 <div class="content">
-                    <div class="title">Utopli svaki</div>
-                    <div class="topic" style="color: rgb(0, 141, 242);">Kutak</div>             
+                    <div class="premium-layout">
+                        <div class="premium-visual">
+                            <img src="image/plavalampa.jpeg" alt="Plava Relight lampa">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="item">
-                <img src="image/zutalampa1.jpeg">
+            <div class="item hero-slide" data-title="Dodir retro" data-topic="Mira.">
                 <div class="content">
-                    <div class="title">Dodir retro</div>
-                    <div class="topic" style="color: rgb(213, 236, 0);">Mira</div>
-                    
+                    <div class="premium-layout">
+                        <div class="premium-visual">
+                            <img src="image/zutalampa1.jpeg" alt="Žuta Relight lampa">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="item">
-                <img src="image/narandzastalampa.jpeg">
+            <div class="item hero-slide" data-title="Probudi svoju" data-topic="Emociju.">
                 <div class="content">
-                    <div class="title">Probudi svoju</div>
-                    <div class="topic" style="color: rgb(255, 145, 0);">Emociju</div>
-                   
+                    <div class="premium-layout">
+                        <div class="premium-visual">
+                            <img src="image/narandzastalampa.jpeg" alt="Narandžasta Relight lampa">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div class="hero-static">
+            <div class="author">RELIGHT ATELIER</div>
+            <div id="hero-dynamic-title" class="title">Ručno pravljena</div>
+            <div id="hero-dynamic-topic" class="topic">Signature lampa.</div>
+            <div class="buttons">
+                <a href="#contact-form" class="premium-primary">Zatraži ponudu</a>
+                <a href="https://www.instagram.com/relight_unique/" target="_blank" rel="noopener noreferrer" class="premium-secondary">Pogledaj Instagram</a>
+            </div>
+            <div class="premium-meta">
+                <span>Ručna izrada</span>
+                <span>Limitirana serija</span>
+            </div>
+        </div>
+
         <!-- list thumnail -->
         <div class="thumbnail">
             <div class="item">
-                <img src="image/crnalampa1.jpeg">
+                <img src="image/crnalampa1.jpeg" alt="Thumbnail crvene retro lampe">
                 
             </div>
             <div class="item">
-                <img src="image/plavalampa.jpeg">
+                <img src="image/plavalampa.jpeg" alt="Thumbnail plave retro lampe">
                 
             </div>
             <div class="item">
-                <img src="image/zutalampa1.jpeg">
+                <img src="image/zutalampa1.jpeg" alt="Thumbnail žute retro lampe">
                 
             </div>
             <div class="item">
-                <img src="image/narandzastalampa.jpeg">
+                <img src="image/narandzastalampa.jpeg" alt="Thumbnail narandžaste retro lampe">
                 
             </div>
         </div>
         <!-- next prev -->
 
         <div class="arrows">
-            <button id="prev"><</button>
-            <button id="next">></button>
+            <button id="prev">&lt;</button>
+            <button id="next">&gt;</button>
         </div>
         <!-- time running -->
         <div class="time"></div>
@@ -171,7 +191,8 @@
      
     <section class="footer-section">
     <p>&copy; 2024 Relight. Sva prava zadržana.</p>
-<!---->
+    </section>
+
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="app.js"></script>
 </body>

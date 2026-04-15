@@ -4,7 +4,7 @@ body{
     background-color: #000;
     color: #eee;
     font-family: 'Montserrat', cursive;
-    font-weight: 400px;
+    font-weight: 400;
     font-size: 12px;
 }
 a{
@@ -26,12 +26,13 @@ header a{
 }
 /* carousel */
 .carousel{
-    font-weight: 400px;
+    font-weight: 400;
     height: 100vh;
     margin-top: -50px;
     width: 100vw;
     overflow: hidden;
     position: relative;
+    background: linear-gradient(125deg, #120f0b 8%, #2a1f18 42%, #5a3d2d 100%);
 }
 .carousel .list .item{
     width: 100%;
@@ -39,7 +40,7 @@ header a{
     position: absolute;
     inset: 0 0 0 0;
 }
-.carousel .list .item img{
+.carousel .list .item > img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -69,6 +70,12 @@ header a{
 .carousel .list .item .topic{
     color: #f1683a;
 }
+.carousel .list .item .des{
+    margin-top: 16px;
+    max-width: 62ch;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
 .carousel .list .item .buttons{
     display: grid;
     grid-template-columns: repeat(2, 130px);
@@ -76,17 +83,213 @@ header a{
     gap: 5px;
     margin-top: 20px;
 }
-.carousel .list .item .buttons button{
+.carousel .list .item .buttons button,
+.carousel .list .item .buttons a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     background-color: #eee;
     letter-spacing: 3px;
-    font-family: Poppins;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: #131313;
+    border-radius: 999px;
+    padding: 0 14px;
+    transition: all 0.25s ease;
 }
 .carousel .list .item .buttons button:nth-child(2){
     background-color: transparent;
     border: 1px solid #fff;
     color: #eee;
+}
+
+.carousel .list .item.hero-slide::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 22% 28%, rgba(249, 179, 102, 0.28), transparent 44%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.carousel .list .item.hero-slide{
+    background:
+        linear-gradient(125deg, #120f0b 8%, #2a1f18 42%, #5a3d2d 100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.45s ease;
+}
+
+.carousel .list .item.hero-slide:nth-child(1){
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.carousel .list .item.hero-slide > img{
+    display: none;
+}
+
+.carousel .list .item.hero-slide .content{
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, calc(-50% + 16px));
+    width: min(1180px, 90vw);
+    max-width: none;
+    padding-right: 0;
+    text-shadow: none;
+    opacity: 0;
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.carousel .list .item.hero-slide:nth-child(1) .content{
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+.carousel .list .item.hero-slide .premium-layout{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.hero-static{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(1180px, 90vw);
+    z-index: 6;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    pointer-events: none;
+}
+
+.hero-static .author{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    margin-bottom: 18px;
+    border-radius: 999px;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    color: #fae8ca;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(250, 232, 202, 0.44);
+}
+
+.hero-static .title{
+    font-size: clamp(2.3rem, 5vw, 4.3rem);
+    line-height: 1.08;
+    max-width: 9ch;
+    color: #fff;
+    min-height: 1.12em;
+    white-space: nowrap;
+}
+
+.hero-static .topic{
+    font-size: clamp(2rem, 4.4vw, 3.8rem);
+    line-height: 1.08;
+    color: #f8d49a;
+    max-width: 10ch;
+    min-height: 1.12em;
+    white-space: nowrap;
+}
+
+.hero-static .buttons{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    pointer-events: none;
+}
+
+.hero-static .buttons a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    letter-spacing: 0.18em;
+    padding: 0 20px;
+    pointer-events: auto;
+    text-transform: uppercase;
+    border-radius: 999px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.hero-static .buttons .premium-primary{
+    border: 1px solid rgba(251, 217, 160, 0.82);
+    color: #15100b;
+    background: linear-gradient(135deg, #f9d89f, #f1bc76);
+}
+
+.hero-static .buttons .premium-primary:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(241, 188, 118, 0.34);
+}
+
+.hero-static .buttons .premium-secondary{
+    color: #f5e4c8;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(245, 228, 200, 0.52);
+    backdrop-filter: blur(2px);
+}
+
+.hero-static .buttons .premium-secondary:hover{
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.hero-static .premium-meta{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.hero-static .premium-meta span{
+    border-radius: 999px;
+    border: 1px solid rgba(255, 247, 230, 0.28);
+    background: rgba(6, 6, 6, 0.22);
+    color: #f7e8cd;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 7px 12px;
+}
+
+.carousel .list .item.hero-slide .premium-visual{
+    flex: 0 0 min(430px, 38vw);
+    border-radius: 28px;
+    overflow: hidden;
+    background: #1a130f;
+}
+
+.carousel .list .item.hero-slide .premium-visual img{
+    width: 100%;
+    max-width: 430px;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 235, 208, 0.35);
+    box-shadow:
+        0 26px 48px rgba(0, 0, 0, 0.42),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+    object-fit: cover;
+    aspect-ratio: 4 / 5;
+    background: #1a130f;
 }
 /* thumbail */
 .thumbnail{
@@ -97,6 +300,7 @@ header a{
     z-index: 100;
     display: flex;
     gap: 20px;
+    display: none;
 }
 .thumbnail .item{
     width: 150px;
@@ -126,11 +330,14 @@ header a{
 /* arrows */
 .arrows{
     position: absolute;
-    top: 80%;
-    right: 52%;
+    bottom: 42px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: auto;
+    right: auto;
     z-index: 100;
-    width: 300px;
-    max-width: 30%;
+    width: auto;
+    max-width: none;
     display: flex;
     gap: 10px;
     align-items: center;
@@ -527,7 +734,8 @@ header a{
 .carousel .list .item:nth-child(1) .content .title,
 .carousel .list .item:nth-child(1) .content .topic,
 .carousel .list .item:nth-child(1) .content .des,
-.carousel .list .item:nth-child(1) .content .buttons
+.carousel .list .item:nth-child(1) .content .buttons,
+.carousel .list .item:nth-child(1) .content .premium-meta
 {
     transform: translateY(50px);
     filter: blur(20px);
@@ -595,6 +803,8 @@ header a{
 }
 
 
+
+
 /* ---- ZAŠTO RELIGHT SEKCIJA ---- */
 .why-relight {
     width: 100%;
@@ -648,6 +858,7 @@ header a{
 
     border-color: rgba(255, 200, 60, 0.55);
 }
+
 
 /* ---- SOFT & SMOOTH PULSE ---- */
 @keyframes neonPulseMedium {
@@ -709,12 +920,6 @@ header a{
 
 
 
-
-
-
-
-
-
 @keyframes showContent{
     to{
         transform: translateY(0px);
@@ -734,8 +939,11 @@ header a{
 .carousel .list .item:nth-child(1) .content .buttons{
     animation-delay: 1.8s!important;
 }
-/* create animation when next click */
-.carousel.next .list .item:nth-child(1) img{
+.carousel .list .item:nth-child(1) .content .premium-meta{
+    animation-delay: 2s!important;
+}
+/* Animacija na next */
+.carousel.next .list .item:nth-child(1) > img{
     width: 150px;
     height: 220px;
     position: absolute;
@@ -758,7 +966,7 @@ header a{
     overflow: hidden;
     animation: showThumbnail .5s linear 1 forwards;
 }
-.carousel.prev .list .item img{
+.carousel.prev .list .item > img{
     z-index: 100;
 }
 @keyframes showThumbnail{
@@ -805,7 +1013,7 @@ header a{
     z-index: 2;
 }
 
-.carousel.prev .list .item:nth-child(2) img{
+.carousel.prev .list .item:nth-child(2) > img{
     animation: outFrame 0.5s linear 1 forwards;
     position: absolute;
     bottom: 0;
@@ -834,7 +1042,8 @@ header a{
 .carousel.prev .list .item:nth-child(2) .content .title,
 .carousel.prev .list .item:nth-child(2) .content .topic,
 .carousel.prev .list .item:nth-child(2) .content .des,
-.carousel.prev .list .item:nth-child(2) .content .buttons
+.carousel.prev .list .item:nth-child(2) .content .buttons,
+.carousel.prev .list .item:nth-child(2) .content .premium-meta
 {
     animation: contentOut 1.5s linear 1 forwards!important;
 }
@@ -847,16 +1056,78 @@ header a{
     }
 }
 @media screen and (max-width: 678px) {
+    .carousel{
+        height: 100svh;
+        min-height: 780px;
+    }
     .carousel .list .item .content{
         padding-right: 0;
     }
     .carousel .list .item .content .title{
         font-size: 30px;
     }
+    .carousel .list .item.hero-slide .content{
+        width: min(92vw, 380px);
+        top: auto;
+        bottom: 24px;
+        transform: translateX(-50%);
+    }
+    .carousel .list .item.hero-slide .premium-layout{
+        justify-content: center;
+    }
+    .hero-static{
+        width: min(92vw, 380px);
+        top: 34px;
+        transform: translateX(-50%);
+    }
+    .hero-static .author{
+        margin-bottom: 12px;
+        letter-spacing: 0.18em;
+    }
+    .hero-static .title{
+        font-size: clamp(2rem, 8vw, 2.4rem);
+    }
+    .hero-static .topic{
+        font-size: clamp(1.7rem, 7vw, 2.1rem);
+    }
+    .hero-static .buttons{
+        margin-top: 18px;
+        gap: 10px;
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 320px;
+    }
+    .hero-static .buttons a{
+        min-height: 38px;
+        letter-spacing: 0.14em;
+        padding: 0 16px;
+        font-size: 9px;
+        width: 100%;
+    }
+    .hero-static .premium-meta{
+        margin-top: 14px;
+        gap: 8px;
+    }
+    .hero-static .premium-meta span{
+        font-size: 9px;
+        letter-spacing: 0.14em;
+    }
+    .carousel .list .item.hero-slide .premium-visual{
+        width: 100%;
+        flex: 1 1 auto;
+    }
+    .carousel .list .item.hero-slide .premium-visual img{
+        display: block;
+        max-width: 100%;
+        max-height: 36svh;
+        aspect-ratio: 4 / 5;
+        border-radius: 18px;
+    }
+    .arrows{
+        bottom: 14px;
+    }
 }
-
-
-
 
 
 

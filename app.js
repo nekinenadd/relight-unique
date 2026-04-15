@@ -68,10 +68,36 @@ let SliderDom = carouselDom.querySelector('.carousel .list');
 let thumbnailBorderDom = document.querySelector('.carousel .thumbnail');
 let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
 let timeDom = document.querySelector('.carousel .time');
+let heroTitleDom = document.getElementById('hero-dynamic-title');
+let heroTopicDom = document.getElementById('hero-dynamic-topic');
+let heroVisualImages = SliderDom.querySelectorAll('.hero-slide .premium-visual img');
 
 thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
 let timeRunning = 3000;
 let timeAutoNext = 7000;
+
+function restartTimeBar() {
+    timeDom.style.animation = 'none';
+    void timeDom.offsetWidth;
+    timeDom.style.animation = `runningTime ${timeRunning}ms linear 1 forwards`;
+}
+
+function syncHeroHeadline() {
+    let activeSlide = SliderDom.querySelector('.item:nth-child(1)');
+    if (!activeSlide || !heroTitleDom || !heroTopicDom) {
+        return;
+    }
+
+    heroTitleDom.textContent = activeSlide.dataset.title || '';
+    heroTopicDom.textContent = activeSlide.dataset.topic || '';
+}
+
+function preloadHeroImages() {
+    heroVisualImages.forEach((img) => {
+        const preloaded = new Image();
+        preloaded.src = img.src;
+    });
+}
 
 nextDom.onclick = function(){
     showSlider('next');    
@@ -80,10 +106,15 @@ nextDom.onclick = function(){
 prevDom.onclick = function(){
     showSlider('prev');    
 }
-let runTimeOut;
+
 let runNextAuto = setTimeout(() => {
-    next.click();
+    nextDom.click();
 }, timeAutoNext)
+
+restartTimeBar();
+syncHeroHeadline();
+preloadHeroImages();
+
 function showSlider(type){
     let  SliderItemsDom = SliderDom.querySelectorAll('.carousel .list .item');
     let thumbnailItemsDom = document.querySelectorAll('.carousel .thumbnail .item');
@@ -91,20 +122,16 @@ function showSlider(type){
     if(type === 'next'){
         SliderDom.appendChild(SliderItemsDom[0]);
         thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
-        carouselDom.classList.add('next');
     }else{
         SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
         thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
-        carouselDom.classList.add('prev');
-    }
-    clearTimeout(runTimeOut);
-    runTimeOut = setTimeout(() => {
-        carouselDom.classList.remove('next');
-        carouselDom.classList.remove('prev');
-    }, timeRunning);
+    }    
+
+    restartTimeBar();
+    syncHeroHeadline();
 
     clearTimeout(runNextAuto);
     runNextAuto = setTimeout(() => {
-        next.click();
+        nextDom.click();
     }, timeAutoNext)
 }
